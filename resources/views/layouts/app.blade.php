@@ -51,6 +51,12 @@
                     <span>Data Alat Yang Disewa</span></a>
             </li>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('transaksi.index')}}">
+                    <i class="fas fa-fw fa-th-list"></i>
+                    <span>Data Transaksi</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
