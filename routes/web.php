@@ -21,3 +21,8 @@ Route::get('/gscamp', function () {
 Route::resource('gscamp/barang','BarangController');
 Route::get('/editbarang/{id}','BarangController@edit')->name('editbarang');
 Route::get('/hapusbarang/{id}','FacultiController@destroy')->name('hapusbarang');
+
+//Barang
+Route::resource('gscamp/transaksi','TransaksiController');
+Route::get('/editbarang/{id}','BarangController@edit')->name('editbarang');
+Route::get('/hapusbarang/{id}','FacultiController@destroy')->name('hapusbarang');

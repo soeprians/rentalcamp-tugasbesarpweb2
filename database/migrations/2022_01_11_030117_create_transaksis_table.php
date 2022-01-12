@@ -15,6 +15,13 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
+            $table->string('namepenyewa',50);
+            $table->integer('barang_id')->nullable();
+            $table->string('no_wa',50);
+            $table->string('gmail',50);
+            $table->date('tgl_sewa');
+            $table->string('bukti');
+            $table->string('status',50);
             $table->timestamps();
         });
     }
