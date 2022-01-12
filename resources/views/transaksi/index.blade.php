@@ -35,23 +35,98 @@
                                         <div class="col-sm-12 py-1">
                                             <div class="form-group row">
                                                 <label for="validationCustom02" class="col-sm-3 col-form-label">
-                                                    Nama Alat Sewa
+                                                    Nama Penyewa
                                                 </label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="validationCustom02" name="name" placeholder="Masukan Nama transaksi" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
-                                                    @if ($errors->has('name'))
+                                                    <input type="text" class="form-control" id="validationCustom02" name="namepenyewa" placeholder="Masukan Nama Penyewa" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
+                                                    @if ($errors->has('namepenyewa'))
                                                     <span class="help-block">
-                                                        <strong>{{ $errors->first('name') }}</strong>
+                                                        <strong>{{ $errors->first('namepenyewa') }}</strong>
                                                     </span>
                                                     @endif
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="validationCustom02" class="col-sm-3 col-form-label">
-                                                    Harga Alat Sewa
+                                                    Nama Barang
                                                 </label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="validationCustom02" name="harga" placeholder="Masukan Harga transaksi" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
+                                                    <input type="text" class="form-control" id="validationCustom02" name="barang_id" placeholder="Masukan No Whatsapp" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
+                                                    @if ($errors->has('barang_id'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('barang_id') }}</strong>
+                                                    </span>
+                                                    @endif
+                                                </div>
+                                        </div>
+                                            <div class="form-group row">
+                                                    <label for="validationCustom02" class="col-sm-3 col-form-label">
+                                                        No. WA
+                                                    </label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="validationCustom02" name="no_wa" placeholder="Masukan No Whatsapp" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
+                                                        @if ($errors->has('no_wa'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('no_wa') }}</strong>
+                                                        </span>
+                                                        @endif
+                                                    </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom02" class="col-sm-3 col-form-label">
+                                                    Gmail
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="validationCustom02" name="gmail" placeholder="Masukan Gmail" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
+                                                    @if ($errors->has('gmail'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('gmail') }}</strong>
+                                                    </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom02" class="col-sm-3 col-form-label">
+                                                    Tgl Sewa
+                                                </label>
+                                                &nbsp;&nbsp;&nbsp<div class="form-group {{ $errors->has('tgl_sewa') ? ' has-error' : '' }}">	
+                                                    <input type="date" name="tgl_sewa" class="form-control"  required>
+                                                    @if ($errors->has('tgl_sewa'))
+                                                      <span class="help-block">
+                                                          <strong>{{ $errors->first('tgl_sewa') }}</strong>
+                                                      </span>
+                                                  @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom02" class="col-sm-3 col-form-label">
+                                                    Bukti Transaksi
+                                                </label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="validationCustom02" name="bukti" placeholder="Masukan Bukti Transaksi" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
+                                                    @if ($errors->has('bukti'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('bukti') }}</strong>
+                                                    </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom03" class="col-sm-3 col-form-label">
+                                                    Status
+                                                </label>
+                                                <div class="col-sm-9">
+                                                <select name="status" class="form-control" >
+                                                   <option value="">-Select-</option>
+                                                   <option value="Sudah Dibayar">Sudah Dibayar</option>
+                                                   <option value="Sedang Disewa">Sedang Disewa</option>
+                                                   <option value="Sudah Dikembalikan">Sudah Dikembalikan</option>
+                                                </select>
+                                                @if ($errors->has('status'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('status') }}</strong>
+                                                    </span>
+                                                @endif
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -98,10 +173,13 @@
                                                 @foreach($transaksi as $data)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{$data->name}}</td>
-                                                                                                        
-                                                    <td>{{$data->harga}}</td>
-
+                                                    <td>{{$data->namepenyewa}}</td>
+                                                    <td>{{$data->barang_id}}</td>              
+                                                    <td>{{$data->no_wa}}</td>
+                                                    <td>{{$data->gmail}}</td>
+                                                    <td>{{$data->tgl_sewa}}</td>
+                                                    <td>{{$data->bukti}}</td>
+                                                    <td>{{$data->status}}</td>
                                                     <td>
                                                         <form action="{{ route('transaksi.destroy', $data->id) }}"method="POST">
                                                             @csrf @method('delete')

@@ -56,7 +56,6 @@ class TransaksiController extends Controller
             'no_wa' => 'required',
             'gmail' => 'required',
             'tgl_sewa' => 'required',
-            'bukti' => 'required',
             'status' => 'required'
         ]);
 
@@ -66,7 +65,6 @@ class TransaksiController extends Controller
         $transaksi->no_wa = $request->no_wa;
         $transaksi->gmail = $request->gmail;
         $transaksi->tgl_sewa = $request->tgl_sewa;
-        $transaksi->bukti = $request->bukti;
         $transaksi->status = $request->status;
         $transaksi->save();
         return redirect()->route('transaksi.index')->with('success', 'Data Berhasil Disimpan');
