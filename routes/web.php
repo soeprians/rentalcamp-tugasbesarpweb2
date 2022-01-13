@@ -18,11 +18,11 @@ Route::get('/gscamp', function () {
 });
 
 //Barang
-Route::resource('gscamp/barang','BarangController');
-Route::get('/editbarang/{id}','BarangController@edit')->name('editbarang');
-Route::get('/hapusbarang/{id}','FacultiController@destroy')->name('hapusbarang');
+Route::resource('gscamp/barangs','BarangController');
+Route::get('/editbarangs/{id}','BarangController@edit')->name('editbarangs');
+Route::get('/hapusbarangs/{id}','BarangController@destroy')->name('hapusbarangs');
 
 //Barang
 Route::resource('gscamp/transaksi','TransaksiController');
-Route::get('/editbarang/{id}','BarangController@edit')->name('editbarang');
-Route::get('/hapusbarang/{id}','FacultiController@destroy')->name('hapusbarang');
+Route::get('/edittransaksi/{id}','TransaksiController@edit')->name('edittransaksi');
+Route::get('/hapustransaksi/{id}','TransaksiController@destroy')->name('hapustransaksi');

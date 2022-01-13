@@ -50,13 +50,12 @@
                                                 <label for="validationCustom02" class="col-sm-3 col-form-label">
                                                     Nama Barang
                                                 </label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="validationCustom02" name="barang_id" placeholder="Masukan No Whatsapp" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
-                                                    @if ($errors->has('barang_id'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('barang_id') }}</strong>
-                                                    </span>
-                                                    @endif
+                                                <div class="form-group">
+                                                    <select name="barang_id" id="form-control">
+                                                        @foreach ($barang as $barangis)
+                                                            <option value="{{$barangis->id}}">{{$barangis->name}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                         </div>
                                             <div class="form-group row">
@@ -156,7 +155,7 @@
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-striped table-hover text-center" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
-                                                <tr>
+                                                <tr style='text-align:center;vertical-align:middle' align="center" valign="center">
                                                     <th>No</th>
                                                     <th>Nama Penyewa</th>
                                                     <th>Nama Barang</th>
@@ -174,7 +173,7 @@
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{$data->namepenyewa}}</td>
-                                                    <td>{{$data->barang_id}}</td>              
+                                                    <td>{{$data->barang->name}}</td>              
                                                     <td>{{$data->no_wa}}</td>
                                                     <td>{{$data->gmail}}</td>
                                                     <td>{{$data->tgl_sewa}}</td>

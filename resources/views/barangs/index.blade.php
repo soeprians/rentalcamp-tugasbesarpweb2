@@ -30,7 +30,7 @@
                                                     <span aria-hidden="true">×</span>
                                         </button>
                                     </div>
-                                    <form method="POST" action="{{ route('barang.store') }}">
+                                    <form method="POST" action="{{ route('barangs.store') }}">
                                         {{ csrf_field() }}
                                         <div class="col-sm-12 py-1">
                                             <div class="form-group row">
@@ -90,16 +90,16 @@
                                             </thead>
                                             <tbody>
                                                 @php $no = 1; @endphp
-                                                @foreach($barang as $data)
+                                                @foreach($barangs as $data)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{$data->name}}</td>                                                    
                                                     <td>{{$data->harga}}</td>
 
                                                     <td>
-                                                        <form action="{{ route('barang.destroy', $data->id) }}"method="POST">
+                                                        <form action="{{ route('barangs.destroy', $data->id) }}"method="POST">
                                                             @csrf @method('delete')
-                                                            <a href="{{ route('barang.edit',$data->id) }}" class="btn btn-warning">
+                                                            <a href="{{ route('barangs.edit',$data->id) }}" class="btn btn-warning">
                                                                 <i class="far fa-edit"></i>&nbsp;&nbsp;Edit</a>
                                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Ingin Menghapus Data?')">
                                                                 <i class="fa fa-trash"></i>&nbsp;&nbsp;Delete</button>

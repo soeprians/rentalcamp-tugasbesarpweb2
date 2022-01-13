@@ -9,15 +9,15 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $barang = Barang::all();
+        $barangs = Barang::all();
         // dd($kors);
-        return view('barang.index',compact('barang'));
+        return view('barangs.index',compact('barangs'));
     }
 
     public function create()
     {
-        $barang = Barang::all();
-        return view('barang.index',compact('barang'));
+        $barangs = Barang::all();
+        return view('barangs.index',compact('barangs'));
     }
 
     public function store(Request $request)
@@ -27,17 +27,17 @@ class BarangController extends Controller
             'harga' => 'required'
         ]);
 
-        $barang = new Barang;
-        $barang->name = $request->name;
-        $barang->harga = $request->harga;
-        $barang->save();
-        return redirect()->route('barang.index')->with('success', 'Data Berhasil Disimpan');
+        $barangs = new Barang;
+        $barangs->name = $request->name;
+        $barangs->harga = $request->harga;
+        $barangs->save();
+        return redirect()->route('barangs.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function edit($id)
     {
-        $barang = Barang::findOrFail($id);
-        return view('barang.edit',compact('barang'));
+        $barangs = Barang::findOrFail($id);
+        return view('barangs.edit',compact('barangs'));
     }
 
     public function update(Request $request, $id)
@@ -47,18 +47,18 @@ class BarangController extends Controller
             'harga' => 'required'
         ]);
 
-        $barang = Barang::findOrFail($id);
-        $barang->name = $request->name;
-        $barang->harga = $request->harga;
-        $barang->save();
-        return redirect()->route('barang.index')->with('success', 'Data Berhasil Disimpan');
+        $barangs = Barang::findOrFail($id);
+        $barangs->name = $request->name;
+        $barangs->harga = $request->harga;
+        $barangs->save();
+        return redirect()->route('barangs.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
-        $barang = Barang::findOrFail($id);
-        $barang->delete();
-        return redirect()->route('barang.index');
+        $barangs = Barang::findOrFail($id);
+        $barangs->delete();
+        return redirect()->route('barangs.index');
     }
 }
     
