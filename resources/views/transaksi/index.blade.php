@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.tampilan')
 @section('content')
 
 <section class="page-content container-fluid">
@@ -102,7 +102,7 @@
                                                     Bukti Transaksi
                                                 </label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="validationCustom02" name="bukti" placeholder="Masukan Bukti Transaksi" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
+                                                    <input type="file" class="form-control" id="validationCustom02" name="bukti" required oninvalid="this.setCustomValidity('Tidak boleh kosong !')" oninput="setCustomValidity('')">
                                                     @if ($errors->has('bukti'))
                                                     <span class="help-block">
                                                         <strong>{{ $errors->first('bukti') }}</strong>
@@ -143,9 +143,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="printkeluargapenerima.php" class=" btn btn-success" target="_blank">
+                        <!--<a href="printkeluargapenerima.php" class=" btn btn-success" target="_blank">
                             <i class="fa fa-print"></i>&nbsp;&nbsp;Print
-                        </a> 
+                        </a>-->
                                
                     </div>
                         <div class="row">
@@ -173,11 +173,11 @@
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{$data->namepenyewa}}</td>
-                                                    <td>{{$data->barang->name}}</td>              
+                                                    <td>{{$data->Barang->name}}</td>              
                                                     <td>{{$data->no_wa}}</td>
                                                     <td>{{$data->gmail}}</td>
                                                     <td>{{$data->tgl_sewa}}</td>
-                                                    <td>{{$data->bukti}}</td>
+                                                    <td><img src="{{ \Storage::url($data->foto) }}" alt="{{ $data->bukti }}" width='150px' class="img-thumbnail mb-2"></td>
                                                     <td>{{$data->status}}</td>
                                                     <td>
                                                         <form action="{{ route('transaksi.destroy', $data->id) }}"method="POST">

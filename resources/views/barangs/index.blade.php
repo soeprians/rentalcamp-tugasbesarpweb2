@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.tampilan')
 @section('content')
 
 <section class="page-content container-fluid">
@@ -69,9 +69,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="printkeluargapenerima.php" class=" btn btn-success" target="_blank">
+                        <!--<a href="printkeluargapenerima.php" class=" btn btn-success" target="_blank">
                             <i class="fa fa-print"></i>&nbsp;&nbsp;Print
-                        </a> 
+                        </a>--> 
                                
                     </div>
                         <div class="row">

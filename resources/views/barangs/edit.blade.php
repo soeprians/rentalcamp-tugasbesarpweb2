@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.tampilan')
 @section('content')
 <section class="page-content container-fluid">
 <div class="row">
 	<div class="col-md-12">
 			<h3 class="card-header">Edit Data Alat Yang Disewa</h3>
-			<form action="{{ route('barang.update',$barang->id) }}" method="post">
+			<form action="{{ route('barangs.update',$barangs->id) }}" method="post">
 				{{ csrf_field() }}
 				<div class="card-body">
 
@@ -14,7 +14,7 @@
 
 			  		<div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
 			  			<label class="control-label">Nama Alat Yang Disewakan</label>	
-			  			<input type="text" name="name" class="form-control col-sm-6" value="{{ $barang->name }}"  required>
+			  			<input type="text" name="name" class="form-control col-sm-6" value="{{ $barangs->name }}"  required>
 			  			@if ($errors->has('name'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('name') }}</strong>
@@ -24,7 +24,7 @@
 
 					<div class="form-group {{ $errors->has('harga') ? ' has-error' : '' }}">
 						<label class="control-label">Harga Alat Sewa</label>	
-						<input type="text" name="harga" class="form-control col-sm-6" value="{{ $barang->harga }}"  required>
+						<input type="text" name="harga" class="form-control col-sm-6" value="{{ $barangs->harga }}"  required>
 						@if ($errors->has('harga'))
 						  <span class="help-block">
 							  <strong>{{ $errors->first('harga') }}</strong>

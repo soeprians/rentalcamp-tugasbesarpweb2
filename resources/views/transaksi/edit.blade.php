@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.tampilan')
 @section('content')
 <section class="page-content container-fluid">
 <div class="row">
@@ -24,16 +24,19 @@
                         </div>
 			  		</div>
 
-					<div class="form-group row {{ $errors->has('barang_id') ? ' has-error' : '' }}">
-						<label class="col-sm-3 col-form-label">Nama Barang</label>
-                        <div class="col-sm-7">
-                        <input type="text" name="barang_id" class="form-control col-sm-6" value="{{ $transaksi->barang_id }}"  required>
-						@if ($errors->has('barang_id'))
-						  <span class="help-block">
-							  <strong>{{ $errors->first('barang_id') }}</strong>
-						  </span>
-					    @endif
-                        </div>
+					
+					  <div class="form-group row">
+						<label for="validationCustom02" class="col-sm-3 col-form-label">
+							Nama Barang
+						</label>
+						<div class="form-group">
+							<select name="barang_id" id="form-control">
+								<option value="{{$transaksi->barang_id}}">{{$transaksi->Barang->name}}</option>
+								@foreach ($barang as $barangis)
+									<option value="{{$barangis->id}}">{{$barangis->name}}</option>
+								@endforeach
+							</select>
+						</div>
 					</div>
                     
                     <div class="form-group row {{ $errors->has('no_wa') ? ' has-error' : '' }}">
@@ -79,9 +82,9 @@
                         <div class="col-sm-3">
                         <select name="status" class="form-control" >
                            <option value="">-Select-</option>
-                           <option value="Sudah Dibayar">Sudah Dibayar</option>
-                           <option value="Sedang Disewa">Sedang Disewa</option>
-                           <option value="Sudah Dikembalikan">Sudah Dikembalikan</option>
+                           <option value="Sudah Dibayar" {{ $transaksi->status == 'Sudah Dibayar'? 'selected': ''}}>Sudah Dibayar</option>
+                           <option value="Sedang Disewa" {{ $transaksi->status == 'Sedang Disewa'? 'selected': ''}}>Sedang Disewa</option>
+                           <option value="Sudah Dikembalikan" {{ $transaksi->status == 'Sudah Dikembalikan'? 'selected': ''}}>Sudah Dikembalikan</option>
                         </select>
                         @if ($errors->has('status'))
                             <span class="help-block">

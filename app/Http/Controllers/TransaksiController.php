@@ -12,7 +12,7 @@ class TransaksiController extends Controller
     public function index()
     {
         $barang = Barang::all();
-        $transaksi = Transaksi::all();
+        $transaksi = Transaksi::with('Barang')->get();
         return view('transaksi.index',compact('barang','transaksi'));
     }
     public function create()
@@ -48,8 +48,9 @@ class TransaksiController extends Controller
 
     public function edit($id)
     {
+        $barang = Barang::all();
         $transaksi = Transaksi::findOrFail($id);
-        return view('transaksi.edit',compact('transaksi'));
+        return view('transaksi.edit',compact('barang','transaksi'));
     }
 
     public function update(Request $request, $id)

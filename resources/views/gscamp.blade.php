@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Daftar Barang </a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="#about">About</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="#team">Pemilik</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('barang.index')}}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                     </ul>
                 </div>
             </div>

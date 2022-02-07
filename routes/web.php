@@ -26,3 +26,6 @@ Route::get('/hapusbarangs/{id}','BarangController@destroy')->name('hapusbarangs'
 Route::resource('gscamp/transaksi','TransaksiController');
 Route::get('/edittransaksi/{id}','TransaksiController@edit')->name('edittransaksi');
 Route::get('/hapustransaksi/{id}','TransaksiController@destroy')->name('hapustransaksi');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
